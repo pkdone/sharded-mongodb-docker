@@ -1,0 +1,187 @@
+version: '3'
+services:
+
+  ######## MONGODB SHARD0 ########
+
+  shard0-replica0:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard0
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - shard0-replica0
+    environment:
+      - REPSET_NAME=shard0
+    expose:
+      - "27017"
+
+  shard0-replica1:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard0
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - shard0-replica1
+    environment:
+      - REPSET_NAME=shard0
+    expose:
+      - "27017"
+
+  shard0-replica2:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard0
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - shard0-replica2
+    environment:
+      - REPSET_NAME=shard0
+    expose:
+      - "27017"
+
+  ######## MONGODB SHARD1 ########
+
+  shard1-replica0:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard1
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - shard1-replica0
+    environment:
+      - REPSET_NAME=shard1
+    expose:
+      - "27017"
+
+  shard1-replica1:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard1
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - shard1-replica1
+    environment:
+      - REPSET_NAME=shard1
+    expose:
+      - "27017"
+
+  shard1-replica2:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --shardsvr --replSet shard1
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - shard1-replica2
+    environment:
+      - REPSET_NAME=shard1
+    expose:
+      - "27017"
+
+  ######## MONGODB CONFIGDB ########
+
+  configdb-replica0:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --configsvr --replSet configdb
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - configdb-replica0
+    environment:
+      - REPSET_NAME=configdb
+    expose:
+      - "27017"
+
+  configdb-replica1:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --configsvr --replSet configdb
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - configdb-replica1
+    environment:
+      - REPSET_NAME=configdb
+    expose:
+      - "27017"
+
+  configdb-replica2:
+    build:
+      context: mongod
+    command: mongod -f /etc/mongod.conf --configsvr --replSet configdb
+    volumes:
+      - ./mongod/mongod.conf:/etc/mongod.conf
+    networks:
+      internalnetwork:
+        aliases:
+          - configdb-replica2
+    environment:
+      - REPSET_NAME=configdb
+    expose:
+      - "27017"
+
+  ######## MONGODB MONGOS ########
+
+  mongos-router0:
+    build:
+      context: mongos
+    command: mongos --port 27017 --bind_ip 0.0.0.0 --configdb "configdb/configdb-replica0:27017,configdb-replica1:27017,configdb-replica2:27017"
+    depends_on:
+      - shard0-replica0
+      - shard0-replica1
+      - shard0-replica2
+      - shard1-replica0
+      - shard1-replica1
+      - shard1-replica2
+      - configdb-replica0
+      - configdb-replica1
+      - configdb-replica2
+    networks:
+      internalnetwork:
+        aliases:
+          - mongos-router0
+    environment:
+      - SHARD_LIST=shard0/shard0-replica0:27017,shard0-replica0:27017,shard0-replica0:27017;shard1/shard1-replica0:27017,shard1-replica0:27017,shard1-replica0:27017
+    expose:
+      - "27017"
+    ports:
+      - "27017:27017"
+
+  mongos-router1:
+    build:
+      context: mongos
+    command: mongos --port 27017 --bind_ip 0.0.0.0 --configdb "configdb/configdb-replica0:27017,configdb-replica1:27017,configdb-replica2:27017"
+    networks:
+      internalnetwork:
+        aliases:
+          - mongos-router1
+    expose:
+      - "27017"
+    ports:
+      - "27018:27017"
+
+networks:
+  internalnetwork: {}
+
