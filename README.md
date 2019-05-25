@@ -4,6 +4,8 @@ A project requiring a single command to build and run a MongoDB Sharded Cluster 
 
 Each element in the deployment topology (9 _Mongod_ processes for the 2 shard replica sets and the _configdb_ replica set + 2 _Mongos_ processes) runs in its own Docker container and all the containers are visible to each other on the same _internal_ network. Once running, the MongoDB cluster is accessible directly from your laptop/PC, via localhost forwarded ports 27107 & 27108 which connect to each of the two Mongos processes respectively.
 
+The first time you execute the command to build and run the containers, it take a couple of minutes to download all the base Docker images. When executed the second and subsequent times, the containers will all come up in around 10 seconds.
+
 # Prerequisites
 * Your laptop/PC is running a recent version of Linux, Windows or Mac OS X
 * [Docker](https://docs.docker.com/install/) is already installed on your laptop/PC
