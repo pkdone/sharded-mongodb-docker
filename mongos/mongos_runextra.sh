@@ -5,6 +5,8 @@ until mongo --quiet --eval 'db.getMongo()'; do
     sleep 1
 done
 
+sleep 1
+
 # Split set of shard URLs text by ';' separator
 IFS=';' read -r -a array <<< "$SHARD_LIST"
 
