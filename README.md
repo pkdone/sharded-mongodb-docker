@@ -38,11 +38,13 @@ sudo docker-compose logs mongos-router0
 * To execute a terminal session directly in one of the Mongos containers and then execute the Mongo Shell directly accessing the local Mongos process, run:
 ```
 sudo docker-compose exec mongos-router0 /bin/bash
+
 mongo
 ```
 * To execute a terminal session directly in one of the Mongod containers and then view the Mongod process' logs, run:
 ```
 sudo docker-compose exec shard0-replica0 /bin/bash
+
 cat /data/db/mongod.log
 ```
 * To shutdown and remove all the Docker Compose project's running containers (ready for you to rebuild and run again), run:
