@@ -27,7 +27,7 @@ _Note_: Use port 27018 instead, above, if you want to connect to the second Mong
 
 # Tips
 
-* Show all the running docker containers for this Docker Compose project:
+* To show all the running docker containers for this Docker Compose project, run:
 ```
 sudo docker-compose ps
 ```
