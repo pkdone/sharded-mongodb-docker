@@ -17,7 +17,7 @@ The first time you execute the command to build and run the containers, it take 
 ```
 sudo docker-compose up --build -d
 ```
-2. Connect to the MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two Mongos endpoints):
+2. Connect to the running MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two Mongos endpoints):
 ```
 mongosh --port 27017
 
