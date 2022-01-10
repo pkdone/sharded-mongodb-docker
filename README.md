@@ -20,8 +20,8 @@ sudo docker-compose up --build -d
 2. Connect to the MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two Mongos endpoints):
 ```
 mongosh --port 27017
+
 sh.status()
-exit
 ```
 _Note_: Use port 27018 instead, above, if you want to connect to the second Mongos endpoint.
 
