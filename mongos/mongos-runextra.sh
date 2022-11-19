@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Wait until mongos can return a connection
-until mongo --quiet --eval 'db.getMongo()'; do
+until mongosh --quiet --eval 'db.getMongo()'; do
     sleep 1
 done
 
@@ -12,7 +12,7 @@ IFS=';' read -r -a array <<< "$SHARD_LIST"
 
 # Add each shard definition to the cluster
 for shard in "${array[@]}"; do  
-    /usr/bin/mongo --port 27017 <<EOF
+    mongosh --port 27017 <<EOF
         sh.addShard("${shard}");
 EOF
 done

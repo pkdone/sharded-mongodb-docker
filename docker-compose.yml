@@ -163,7 +163,7 @@ services:
         aliases:
           - mongos-router0
     environment:
-      - SHARD_LIST=shard0/shard0-replica0:27017,shard0-replica0:27017,shard0-replica0:27017;shard1/shard1-replica0:27017,shard1-replica0:27017,shard1-replica0:27017
+      - SHARD_LIST=shard0/shard0-replica0:27017,shard0-replica1:27017,shard0-replica2:27017;shard1/shard1-replica0:27017,shard1-replica1:27017,shard1-replica2:27017
     expose:
       - "27017"
     ports:
