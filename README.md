@@ -1,12 +1,12 @@
 # Example MongoDB Sharded Cluster Deployment In Docker Containers
 
-A project requiring a single command to build and run a MongoDB Sharded Cluster on a local workstation with each MongoDB component (`Mongod`, `Mongos`) running in a separate Docker container. Uses a [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/overview/) project to launch the [sharded MongoDB cluster](https://docs.mongodb.com/manual/sharding/) containerised deployment consisting of 11 separate containers for:
+A project requiring a single command to build and run a MongoDB Sharded Cluster on a local workstation with each MongoDB component (`mongod`, `mongos`) running in a separate Docker container. Uses a [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/overview/) project to launch the [sharded MongoDB cluster](https://docs.mongodb.com/manual/sharding/) containerised deployment consisting of 11 separate containers for:
 
-  * 6 _Mongod_ processes for the 2 shard replica sets
-  * 3 _Mongod_ processes for the _configdb_ replica set
-  * 2 _Mongos_ router processes
+  * 6 `mongod` processes for the 2 shard replica sets
+  * 3 `mngod` processes for the _configdb_ replica set
+  * 2 `mongos` router processes
   
-All the containers are visible to each other on the same _internal_ network. Once running, the MongoDB cluster is accessible directly from your workstation, via the `localhost` forwarded ports `27107` & `27108` which connect to each of the two `Mongos` processes respectively.
+All the containers are visible to each other on the same _internal_ network. Once running, the MongoDB cluster is accessible directly from your workstation, via the `localhost` forwarded ports `27107` & `27108` which connect to each of the two `mongos` processes respectively.
 
 The first time you execute the command to build and run the containers, it take a couple of minutes to download all the base Docker images. When executed the second and subsequent times, the containers will normally come up in less than 5 seconds.
 
@@ -25,7 +25,7 @@ The first time you execute the command to build and run the containers, it take 
 sudo docker-compose up --build -d
 ```
 
-2. Connect to the running MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two `Mongos` endpoints):
+2. Connect to the running MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two `mongos` endpoints):
 
 ```
 mongosh --port 27017
@@ -35,7 +35,7 @@ mongosh --port 27017
 sh.status()
 ```
 
-_Note_: Use port 27018 instead, above, if you want to connect to the second `Mongos` endpoint.
+_Note_: Use port 27018 instead, above, if you want to connect to the second `mongos` endpoint.
 
 
 ## Tips
@@ -46,13 +46,13 @@ _Note_: Use port 27018 instead, above, if you want to connect to the second `Mon
 sudo docker-compose ps
 ```
 
-* To show the container logs for one of the `Mongos` routers, run:
+* To show the container logs for one of the `mongos` routers, run:
 
 ```
 sudo docker-compose logs mongos-router0
 ```
 
-* To execute a terminal session directly in one of the `Mongos` containers and then execute the MongoDB Shell directly accessing the local `Mongos` process, run:
+* To execute a terminal session directly in one of the `mongos` containers and then execute the MongoDB Shell directly accessing the local `mongos` process, run:
 
 ```
 sudo docker-compose exec mongos-router0 /bin/bash
@@ -62,7 +62,7 @@ sudo docker-compose exec mongos-router0 /bin/bash
 mongo
 ```
 
-* To execute a terminal session directly in one of the `Mongod` containers and then view the `Mongod` process logs, run:
+* To execute a terminal session directly in one of the `mongod` containers and then view the `mongod` process logs, run:
 
 ```
 sudo docker-compose exec shard0-replica0 /bin/bash
