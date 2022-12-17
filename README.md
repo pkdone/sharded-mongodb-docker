@@ -1,10 +1,10 @@
 # Example MongoDB Sharded Cluster Deployment In Docker Containers
 
-A project requiring a single command to build and run a MongoDB Sharded Cluster in a local workstation with each MongoDB component (_Mongod_, _Mongos_) running in a separate Docker container. Uses a [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/overview/) project to launch the [sharded MongoDB cluster](https://docs.mongodb.com/manual/sharding/) containerised deployment consisting of 11 separate containers for:
+A project requiring a single command to build and run a MongoDB Sharded Cluster on a local workstation with each MongoDB component (_Mongod_, _Mongos_) running in a separate Docker container. Uses a [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/overview/) project to launch the [sharded MongoDB cluster](https://docs.mongodb.com/manual/sharding/) containerised deployment consisting of 11 separate containers for:
 
   * 6 _Mongod_ processes for the 2 shard replica sets
-  * 3 _Mongod_ processes the _configdb_ replica set
-  * 2 _Mongos_ processes
+  * 3 _Mongod_ processes for the _configdb_ replica set
+  * 2 _Mongos_ router processes
   
 All the containers are visible to each other on the same _internal_ network. Once running, the MongoDB cluster is accessible directly from your workstation, via the `localhost` forwarded ports `27107` & `27108` which connect to each of the two Mongos processes respectively.
 
