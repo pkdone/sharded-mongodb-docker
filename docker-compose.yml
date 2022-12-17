@@ -15,6 +15,7 @@ services:
           - shard0-replica0
     environment:
       - REPSET_NAME=shard0
+      - DO_INIT_REPSET=true
     expose:
       - "27017"
 
@@ -62,6 +63,7 @@ services:
           - shard1-replica0
     environment:
       - REPSET_NAME=shard1
+      - DO_INIT_REPSET=true
     expose:
       - "27017"
 
@@ -109,6 +111,7 @@ services:
           - configdb-replica0
     environment:
       - REPSET_NAME=configdb
+      - DO_INIT_REPSET=true
     expose:
       - "27017"
 
@@ -184,4 +187,3 @@ services:
 
 networks:
   internalnetwork: {}
-
