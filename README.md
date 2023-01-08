@@ -59,7 +59,7 @@ sudo docker-compose exec mongos-router0 /bin/bash
 ```
 
 ```
-mongo
+mongosh
 ```
 
 * To execute a terminal session directly in one of the `mongod` containers and then view the `mongod` process logs, run:
