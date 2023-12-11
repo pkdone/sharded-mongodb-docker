@@ -12,6 +12,7 @@ The first time you execute the command to build and run the containers, it take 
 
 
 ## Prerequisites
+
 * Your workstation is running a recent version of Linux, Windows or Mac OS X
 * [Docker](https://docs.docker.com/install/) is already installed on your workstation
 * [Docker Compose](https://docs.docker.com/compose/install/) is already installed on your workstation
@@ -19,6 +20,7 @@ The first time you execute the command to build and run the containers, it take 
 
 
 ## Build, Run & Connect
+
 1. Launch a command line terminal in the base of folder of this project and execute the following command to build and start all the containers in the Docker Compose project:
 
 ```
