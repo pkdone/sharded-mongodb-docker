@@ -16,7 +16,7 @@ The first time you execute the command to build and run the containers, it take 
 * Your workstation is running a recent version of Linux, Windows or Mac OS X
 * [Docker](https://docs.docker.com/install/) is already installed on your workstation
 * [Docker Compose](https://docs.docker.com/compose/install/) is already installed on your workstation
-* The [MongoDB Shell](https://docs.mongodb.com/mongodb-shell/install/) is already installed on your workstation to you to issue commands to the running database cluster from your workstation (alternatively use the [MongoDB Compass](https://docs.mongodb.com/compass/current/install/) graphical tool to connect to the cluster)
+* The [MongoDB Shell](https://docs.mongodb.com/mongodb-shell/install/) is already installed on your workstation for to you to issue commands to the running database cluster from your workstation (alternatively use the [MongoDB Compass](https://docs.mongodb.com/compass/current/install/) graphical tool to connect to the cluster)
 
 
 ## Build, Run & Connect
