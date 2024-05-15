@@ -1,6 +1,6 @@
-# Example MongoDB Sharded Cluster Deployment In Docker Containers
+# MongoDB Sharded Cluster Deployment Running In Docker Containers
 
-A project requiring a single command to build and run a MongoDB Sharded Cluster on a local workstation with each MongoDB component (`mongod`, `mongos`) running in a separate Docker container. Uses a [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/overview/) project to launch the [sharded MongoDB cluster](https://docs.mongodb.com/manual/sharding/) containerised deployment consisting of 11 separate containers for:
+Provides the ability to execute a single command to build and run a MongoDB Sharded Cluster on a local workstation with each MongoDB component (`mongod`, `mongos`) running in a separate Docker container. Uses a [Docker](https://docs.docker.com/) [Compose](https://docs.docker.com/compose/overview/) project to launch the [sharded MongoDB cluster](https://docs.mongodb.com/manual/sharding/) containerised deployment consisting of 11 separate containers for:
 
   * 6 `mongod` processes for the 2 shard replica sets
   * 3 `mongod` processes for the _configdb_ replica set
