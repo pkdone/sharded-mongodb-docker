@@ -54,7 +54,7 @@ docker-compose ps
 docker-compose logs mongos-router0
 ```
 
-* To execute a terminal session directly in one of the `mongos` containers and then execute the MongoDB Shell directly accessing the local `mongos` process, run:
+* To execute a terminal session directly in one of the `mongos` containers, to then invoke the MongoDB Shell directly accessing the local `mongos` process, run:
 
 ```
 docker-compose exec mongos-router0 /bin/bash
