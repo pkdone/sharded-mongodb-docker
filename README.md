@@ -27,7 +27,7 @@ The first time you execute the command to build and run the containers, it take 
 docker-compose up --build -d
 ```
 
-2. Connect to the running MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two `mongos` endpoints):
+2. Connect to the running MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two `mongos` endpoints) and then issue the command to print the states of the sharded cluster:
 
 ```
 mongosh --port 27017
