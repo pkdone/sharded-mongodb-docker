@@ -6,9 +6,9 @@ Provides the ability to execute a single command to build and run a MongoDB Shar
   * 3 `mongod` processes for the _configdb_ replica set
   * 2 `mongos` router processes
   
-All the containers are visible to each other on the same _internal_ network. Once running, the MongoDB cluster is accessible directly from your workstation, via the `localhost` forwarded ports `27107` & `27108` which connect to each of the two `mongos` processes respectively.
+All the containers are visible to each other on the same internal network. Once running, the MongoDB cluster is accessible directly from your workstation via the localhost forwarded ports 27107 & 27108 , which connect to each of the two mongos processes, respectively.
 
-The first time you execute the command to build and run the containers, it take a couple of minutes to download all the base Docker images. When executed the second and subsequent times, the containers will normally come up in less than 5 seconds.
+The first time you execute the command to build and run the containers, it takes a few minutes to download all the base Docker images. The containers will normally come up in less than 5 seconds when the command is executed the second and subsequent times.
 
 
 ## Prerequisites
