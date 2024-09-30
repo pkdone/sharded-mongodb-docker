@@ -18,13 +18,15 @@ The first time you execute the command to build and run the containers, it takes
 * [Docker Compose](https://docs.docker.com/compose/install/) is already installed on your workstation
 * The [MongoDB Shell](https://docs.mongodb.com/mongodb-shell/install/) is already installed on your workstation for to you to issue commands to the running database cluster from your workstation (alternatively use the [MongoDB Compass](https://docs.mongodb.com/compass/current/install/) graphical tool to connect to the cluster)
 
+_Note, this README assumes you are running version 2+ of Compose (e.g., `docker-compose-v2`) which integrates the `compose` action as an option when running the `docker` command. If you are running '1.x' version of Compose, for the commands shown in this README, swap `docker compose` with `docker-compose` (i.e., introduce a hyphen between the two words, replacing the space)._ 
+
 
 ## Build, Run & Connect
 
 1. Launch a command line terminal in the base of folder of this project and execute the following command to build and start all the containers in the Docker Compose project:
 
 ```
-docker-compose up --build -d
+docker compose up --build -d
 ```
 
 2. Connect to the running MongoDB cluster from the MongoDB Shell (the shell will attempt to connect to the first of the two `mongos` endpoints) and then issue the command to print the states of the sharded cluster:
@@ -45,19 +47,19 @@ _Note_: Use port 27018 instead, above, if you want to connect to the second `mon
 * To show all the running docker containers for this Docker Compose project, run:
 
 ```
-docker-compose ps
+docker compose ps
 ```
 
 * To show the container logs for one of the `mongos` routers, run:
 
 ```
-docker-compose logs mongos-router0
+docker compose logs mongos-router0
 ```
 
 * To execute a terminal session directly in one of the `mongos` containers, to then invoke the MongoDB Shell directly accessing the local `mongos` process, run:
 
 ```
-docker-compose exec mongos-router0 /bin/bash
+docker compose exec mongos-router0 /bin/bash
 ```
 
 ```
@@ -67,7 +69,7 @@ mongosh
 * To execute a terminal session directly in one of the `mongod` containers and then view the `mongod` process logs, run:
 
 ```
-docker-compose exec shard0-replica0 /bin/bash
+docker compose exec shard0-replica0 /bin/bash
 ```
 
 ```
@@ -77,5 +79,5 @@ cat /data/db/mongod.log
 * To shutdown and remove all the Docker Compose project's running containers (ready for you to rebuild and run again), run:
 
 ```
-docker-compose down
+docker compose down
 ```
